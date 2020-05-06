@@ -14,7 +14,7 @@
 // total cookies for the day
 
 //////////////////////////////////////////////////
-var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 
 function Store(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesPerPerson){
@@ -62,44 +62,43 @@ Store.prototype.calcCookiesForTheDay = function(){
   }
 };
 
-// only for the body of the table
 
-// get the parent Element
-var parentElement = document.getElementById('table');
 
 Store.prototype.render = function(){
   this.calcCookiesForTheDay();
-
+  // only for the body of the table
+  // get the parent Element
+  var parentElement = document.getElementById('table');
 
 
   // this is for "seattle"
   // create a table row
   var tableRow = document.createElement('tr');
 
-    // create a th
+  // create a th
   var tableHeader = document.createElement('th');
-    // fill it with content : this.name
+  // fill it with content : this.name
   tableHeader.textContent = this.name;
-    // append th to the table row
+  // append th to the table row
   tableRow.appendChild(tableHeader);
 
   // this is for the cookies sold each hour
-    // loop over the cookies sold each hour
+  // loop over the cookies sold each hour
   for(var i=0; i<this.cookiesSoldEachHour.length; i++){
     // create a td
     var tableData = document.createElement('td');
     // fill it with content: this.cookiesSoldEachHour[i]
-    tableHeader.textContent = this.cookiesSoldEachHour[i];
+    tableData.textContent = this.cookiesSoldEachHour[i];
     // append td to the table row
     tableRow.appendChild(tableData);
   }
-  
+
   // this for the cookies for the day
-    // create a td
+  // create a td
   var tableTotal = document.createElement('td');
-    // fill it with content: this.totalCookiesForTheDay
+  // fill it with content: this.totalCookiesForTheDay
   tableTotal.textContent = this.totalCookiesForTheDay;
-    // append td to the table row
+  // append td to the table row
   tableRow.appendChild(tableTotal);
 
   // append the table row to the parent
@@ -113,6 +112,35 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
+Store.prototype.renderHours = function hoursRow(){
+// select parent element
+  var hoursElement = document.getElementById('hoursTable');
+// create tr
+  var tableRow = document.createElement('tr');
+   // create an empty cell
+  var tableHeader = document.createElement('th');
+  tableHeader.textContent = '';
+  tableRow.appendChild(tableHeader);
+
+  // then loop over all of the hours then do the same thing over each hours
+  for(var i=0; i<hours.length; i++){
+    tableHeader = document.createElement('th');
+    tableHeader.textContent = hours[i];
+    // append td to the table row
+    tableRow.appendChild(tableHeader);
+  }
+  // the 3 things
+  // last cell "totals for the day"
+  var hoursTotal = document.createElement('th');
+  hoursTotal.textContent = 'Total';
+  tableRow.appendChild(hoursTotal);
+  hoursElement.appendChild(tableRow);
+
+};
+
+
+
+
 
 
 var seattle = new Store('Seattle', 23, 65, 6.3);
@@ -121,11 +149,16 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
+Store.prototype.renderHours();
+
+
 seattle.render();
 tokyo.render();
 dubai.render();
 paris.render();
 lima.render();
+
+
 
 console.log('this is seattle', seattle);
 
