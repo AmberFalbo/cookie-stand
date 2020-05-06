@@ -24,16 +24,16 @@
 //       customersEachHour: [],
 //       cookiesSoldEachHour: [],
 //       totalCookiesForTheDay: 0,
-    
-      calcCustomersEachHour: function(){
-        // calculate the customers each hour and populate the array
-      //   for(var i=0; i<hours.length; i++){
-      //     var customersThisHours = getRandomNumber(this.minCustomersEachHour, this.maxCustomersEachHour);
-    
-      //     this.customersEachHour.push(customersThisHours);
-      //   }
-      // },
-    
+
+//   calcCustomersEachHour: function(){
+// calculate the customers each hour and populate the array
+//   for(var i=0; i<hours.length; i++){
+//     var customersThisHours = getRandomNumber(this.minCustomersEachHour, this.maxCustomersEachHour);
+
+//     this.customersEachHour.push(customersThisHours);
+//   }
+// },
+
 //       calcCookiesSoldEachHour: function(){
 //         // multiply the customers by the average cookies each customers buys
 //         for(var i=0; i<this.customersEachHour.length; i++){
