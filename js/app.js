@@ -14,7 +14,10 @@
 // total cookies for the day
 
 //////////////////////////////////////////////////
+var parentElement = document.getElementById('table');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
+var allStores = [];
+
 
 
 function Store(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesPerPerson){
@@ -25,6 +28,7 @@ function Store(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesP
   this.customersEachHour = [];
   this.cookiesSoldEachHour = [];
   this.totalCookiesForTheDay = 0;
+  allStores.push(this);
 }
 
 Store.prototype.calcCustomersEachHour = function(){
@@ -68,7 +72,6 @@ Store.prototype.render = function(){
   this.calcCookiesForTheDay();
   // only for the body of the table
   // get the parent Element
-  var parentElement = document.getElementById('table');
 
 
   // this is for "seattle"
@@ -105,16 +108,10 @@ Store.prototype.render = function(){
   parentElement.appendChild(tableRow);
 };
 
-
-// // helper function
-// // got this function from MDN Math.random
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min +1)) + min;
-}
-
-Store.prototype.renderHours = function hoursRow(){
-// select parent element
-  var hoursElement = document.getElementById('hoursTable');
+// hours row
+Store.prototype.renderHours = function(){
+  // select parent element
+  var hoursElement = document.getElementById('table');
 
   var tableRow = document.createElement('tr');
   // create an empty cell
@@ -135,23 +132,61 @@ Store.prototype.renderHours = function hoursRow(){
   hoursTotal.textContent = 'Total';
   tableRow.appendChild(hoursTotal);
   hoursElement.appendChild(tableRow);
-
 };
 
-// Store.prototype.renderTotals = function totalsRow(){
-//   // select parent element
-//   var totalsElement = document.getElementById('totalTable');
-//   var totalFoot = document.createElement('td');
-//   totalFoot.textContent = 'Totals ';
 
-//   totalsElement.appendChild(totalsRow);
+function renderFooterRow(){
+  var totalOfAllTotals = 0;
 
-//   for(var i=0; i<cookiesSoldEachHour.length; i++){
-//     totalFoot = document.createElement('td');
-//     totalFoot.textContent = cookiesSoldEachHour[i];
-//     totalsElement.appendChild(totalFoot);
-//   }
-// };
+
+  // create a table row
+  var tableRow = document.createElement('tr');
+
+  // create a td
+  var tableData = document.createElement('th');
+  // fill it with the word 'hourly total'
+  tableData.textContent = 'Hourly Total';
+  // append it to the table row
+  tableRow.appendChild(tableData);
+
+  // outer loop: for each hour
+  // inner loop is going to loop over each store
+  // access my cookies sold each hour array at the same postion as my outer loop
+  for(var i=0; i<hours.length; i++){
+
+    var sum = 0;
+
+    for(var j=0; j<allStores.length; j++){
+      sum+= allStores[j].cookiesSoldEachHour[i];
+    }
+
+    totalOfAllTotals += sum;
+    // totalOfAllTotals = totalOfAllTotal + sum;
+
+    // create a td
+    tableData = document.createElement('td');
+    // fill it with the sum
+    tableData.textContent = sum;
+    // append it to the table row
+    tableRow.appendChild(tableData);
+
+  }
+  // append the total of all totals
+  // creat a td
+  tableData = document.createElement('td');
+  // fill it the total
+  tableData.textContent = totalOfAllTotals;
+  // append it to tht etable row
+  tableRow.appendChild(tableData);
+  // append table row to parent
+  parentElement.appendChild(tableRow);
+}
+
+// // helper function
+// // got this function from MDN Math.random
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min +1)) + min;
+}
 
 
 
@@ -162,6 +197,7 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
+
 Store.prototype.renderHours();
 // Store.prototype.renderTotals();
 
@@ -171,30 +207,8 @@ dubai.render();
 paris.render();
 lima.render();
 
-
-
-console.log('this is seattle', seattle);
-
+renderFooterRow();
 
 
 
-
-// // goal: dynamical render a table to the DOM
-
-// // select the partent element
-// var parenteElement = document.getElementById('table');
-
-// // Make the first row
-
-// //create a tr
-// var tableRow = document.createElement('tr');
-
-// var tableHeader = document.createElement('th');
-// tableHeader.textContent = this.name;
-// tableRow.appendChild(tableHeader);
-
-// for(var i=0; i<hours.length; i++){
-//   var tdl.textContent = cookiesSoldEachHour[i];
-//   tableRow.appendChild(tdl);
-// };
 

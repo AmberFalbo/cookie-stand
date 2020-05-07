@@ -10,6 +10,7 @@ h1{
   padding: 20px;
 }
 
+
 body{
   padding-left: 20px;
   padding-right: 20px;
@@ -33,10 +34,42 @@ article{
   text-overflow: ellipsis;
 }
 
-div{
-  display: inline-block;
+section{
+  margin: 20px;
 }
 
-#bottomSalom{
+#salesTableText{
+  font-size: 40px;
+  text-indent: 20%;
+  color: blanchedalmond;
+}
+
+table, th, td {
+  box-shadow: 2px 2px 2px 2px rgb(222, 92, 22);
+}
+
+table{
+  display: table-cell;
+  padding: 20px;
+  border: 10px solid rgb(245, 87, 70);
+  margin: unset;
+  box-shadow: 4px 4px 4px  rgb(255, 255, 255);
+
+}
+
+
+tr{
+  color: rgb(235, 67, 30);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.863) 20%, rgba(78, 252, 252, 0.164));
+  font-size: 20px;
+}
+
+td{
+  color: coral;
+  font-size: 16px;
+}
+
+
+#bottomSalmon{
   align-items: center;
 }
