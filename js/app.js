@@ -115,9 +115,9 @@ function getRandomNumber(min, max) {
 Store.prototype.renderHours = function hoursRow(){
 // select parent element
   var hoursElement = document.getElementById('hoursTable');
-// create tr
+
   var tableRow = document.createElement('tr');
-   // create an empty cell
+  // create an empty cell
   var tableHeader = document.createElement('th');
   tableHeader.textContent = '';
   tableRow.appendChild(tableHeader);
@@ -138,7 +138,20 @@ Store.prototype.renderHours = function hoursRow(){
 
 };
 
+// Store.prototype.renderTotals = function totalsRow(){
+//   // select parent element
+//   var totalsElement = document.getElementById('totalTable');
+//   var totalFoot = document.createElement('td');
+//   totalFoot.textContent = 'Totals ';
 
+//   totalsElement.appendChild(totalsRow);
+
+//   for(var i=0; i<cookiesSoldEachHour.length; i++){
+//     totalFoot = document.createElement('td');
+//     totalFoot.textContent = cookiesSoldEachHour[i];
+//     totalsElement.appendChild(totalFoot);
+//   }
+// };
 
 
 
@@ -150,7 +163,7 @@ var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
 Store.prototype.renderHours();
-
+// Store.prototype.renderTotals();
 
 seattle.render();
 tokyo.render();
