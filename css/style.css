@@ -1,0 +1,42 @@
+*{
+  background-color: rgb(244, 184, 163);
+}
+
+
+h1{
+  color: beige;
+  text-align: center;
+  font-size: 5em;
+  padding: 20px;
+}
+
+body{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+img{
+  padding: 20px;
+}
+
+#contactInfo{
+  text-align: center;
+  padding: 20px;
+}
+
+#topNav{
+  text-align: center;
+  padding: 30px;
+}
+
+article{
+  text-overflow: ellipsis;
+}
+
+div{
+  display: inline-block;
+}
+
+#bottomSalom{
+  align-items: center;
+}
