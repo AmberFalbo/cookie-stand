@@ -1,31 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link href="css/reset.css" rel="stylesheet" type="text/css" />
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <title>Pat's Cookie Sales</title>
-    <meta charset="UT-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
+
+<head>
+  <link href="css/reset.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <title>Pat's Cookie Sales</title>
+  <meta charset="UT-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
 <body>
-    <header>
-      <section>
-        <div>
-          <h1>Pat's Salmon Cookies</h1>
-        </div>
-        <a href="index.html">Main</a>
-      </section>  
-    </header>
-    <main>
+  <header>
+    <section>
       <div>
-        <h2 id=salesTableText>Sales Table</h2>
-        <table id=theTable>
-          <tbody id = "table"></tbody>
-        </table>
+        <h1>Pat's Salmon Cookies</h1>
+        <section>
+          <img class=topSalmon src="img/salmon.png" alt="salmon" title="Salmon Salmon" />
+        </section>
       </div>
-    </main>  
-    <footer>
-    </footer>
-    <script src="js/app.js"></script>
+    </section>
+    <nav>
+      <ul>
+        <img src="img/salmon.png" alt="salmon" title="Salmon Salmon" width="50px" />
+        <li><a href="index.html">HOME</a></li>
+        <li>Seattle</li>
+        <li>Tokyo</li>
+        <li>Dubai</li>
+        <li>Paris</li>
+        <li>Lima</li>
+        <img src="img/salmon.png" alt="salmon" title="Salmon Salmon" width="50px" />
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div id=tableBox>
+      <p>
+        <h2 id=salesTableText>Sales Table</h2>
+      </p>
+      <table id=theTable>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
+    <div id=formBox>
+      <form id="form">
+        <fieldset>
+          <legend>Fill out your store details here!</legend>
+          <label class="labels">City:<br>
+            <input type="text" required name="city" placeholder="City" /></label><br />
+          <label class="labels">Minimum Customers:<br />
+            <input type="text" name="minCust" placeholder="Min # of Customers" /></label><br />
+          <label class="labels">Maximum Customers:<br />
+            <input type="text" name="maxCust" placeholder="Max # of Customers" /></label><br />
+          <label class="labels">Avg Cookie Sales:<br />
+            <input type="text" name="cookieSales" placeholder="# of cookies" /></label><br />
+          <input type="submit" name="create" value="submit" />
+        </fieldset>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <section id="contactInfo">
+      <nav>
+        <p>
+          <h2>Have a Fishtastic Day!</h2>
+        </p>
+        <article>
+          <ul>
+            <img src="img/fish.jpg" alt="cuteFish" title="Cute Colorful Fish" height="90px" />
+            <img id="bottomSalmon" src="img/chinook.jpg" alt="chinookSalmon" title="Chinook Salmon" height="100px" />
+            <img src="img/fish.jpg" alt="cuteFish" title="Cute Colorful Fish" height="90px" />
+          </ul>
+        </article>
+        <p> ©SallySalmon | FB | Instagram </p>
+      </nav>
+    </section>
+  </footer>
+  <script src="js/app.js"></script>
 </body>
+
 </html>
