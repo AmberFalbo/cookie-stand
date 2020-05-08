@@ -12,19 +12,58 @@
       <section>
         <div>
           <h1>Pat's Salmon Cookies</h1>
+          <section>
+            <img class=topSalmon src="img/salmon.png" alt="salmon" title="Salmon Salmon" />
+          </section>
         </div>
-        <a href="index.html">Main</a>
       </section>  
+      <nav>
+        <ul>
+          <li><a href="index.html">HOME</a></li>
+          <li>Seattle</li>
+          <li>Tokyo</li>
+          <li>Dubai</li>
+          <li>Paris</li>
+          <li>Lima</li>
+        </ul> 
+      </nav>
     </header>
     <main>
       <div>
-        <h2 id=salesTableText>Sales Table</h2>
+        <p><h2 id=salesTableText>Sales Table</h2></p>
         <table id=theTable>
           <tbody id = "table"></tbody>
         </table>
       </div>
+      <div>
+        <br>
+        <form id="form">
+          <fieldset>
+            <legend>Store Details</legend>
+            <label>City:<br>
+            <input type="text" required name="city" placeholder="City" /></label><br />
+            <label>Minimum Customers:<br />
+            <input type="text" name="minCust" placeholder="Min # of Customers"/></label><br />
+            <label>Maximum Customers:<br />
+            <input type="text" name="maxCust" placeholder="Max # of Customers"/></label><br />
+            <label>Avg Cookie Sales:<br />
+            <input type="text" name="cookieSales" placeholder="# of cookies"/></label><br />
+            <input type="submit" name="create" value="submit" />
+          </fieldset>
+        </form>
+        <br> 
+      </div>
     </main>  
     <footer>
+      <section id = "contactInfo">
+        <nav>
+          <p><h2>Happy Fishtastic Day!</h2></p>
+          <article>
+            <img id ="bottomSalmon" src="img/chinook.jpg" alt="chinookSalmon" title="Chinook Salmon" />
+          </article>
+          <p> ©Falbo | FB | Instagram </p> 
+      </nav>
+      </section>
     </footer>
     <script src="js/app.js"></script>
 </body>

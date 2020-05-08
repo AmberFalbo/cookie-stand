@@ -17,6 +17,8 @@
 var parentElement = document.getElementById('table');
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm','1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 var allStores = [];
+var form = document.getElementById('form');
+var allNewStores = [];
 
 
 
@@ -188,6 +190,37 @@ function getRandomNumber(min, max) {
   return Math.floor(Math.random() * (max - min +1)) + min;
 }
 
+//////////////////
+//form
+
+// Store.prototype.renderHours = function
+function NewStore(city, minCust, maxCust, cookieSales){
+  this.name = city;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.cookieSales = cookieSales;
+  allNewStores.push(this);
+}
+
+// set up event handleer
+function handleFormSubmit(event){
+  event.preventDefault();
+
+  var city = event.target.city.value;
+  var minCust = event.target.minCust.value;
+  var maxCust = event.target.maxCust.value;
+  var cookieSales = event.target.cookieSales.value;
+
+  new NewStore(city, minCust, maxCust, cookieSales);
+}
+
+form.addEventListener('submit', handleFormSubmit);
+
+//////////////////
+
+
+
+
 
 
 
@@ -196,6 +229,7 @@ var tokyo = new Store('Tokyo', 3, 24, 1.2);
 var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
+
 
 
 Store.prototype.renderHours();

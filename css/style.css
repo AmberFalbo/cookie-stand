@@ -2,6 +2,13 @@
   background-color: rgb(244, 184, 163);
 }
 
+body{
+  margin-top: 40px;
+  margin-bottom: 60px;
+  color: rgb(228, 75, 40);
+
+}
+
 
 h1{
   color: beige;
@@ -10,38 +17,39 @@ h1{
   padding: 20px;
 }
 
-
-body{
-  padding-left: 20px;
-  padding-right: 20px;
+img.topSalmon{                   
+  display: block;
+  margin: 0px;
 }
 
-img{
+nav{
+  border-top: 4px solid salmon;
+  border-bottom: 4px solid salmon;
   padding: 20px;
-}
-
-#contactInfo{
   text-align: center;
-  padding: 20px;
+  list-style-type: none;
 }
 
-#topNav{
-  text-align: center;
-  padding: 30px;
+
+ul li {
+  display: inline-block;
+  margin: 10px; 
+
 }
 
-article{
-  text-overflow: ellipsis;
+p{
+  padding: 10px;
 }
 
-section{
-  margin: 20px;
-}
+
 
 #salesTableText{
   font-size: 40px;
-  text-indent: 20%;
-  color: blanchedalmond;
+  text-indent: 10%;
+  color: rgb(227, 86, 43);
+  
+  
+  
 }
 
 table, th, td {
@@ -52,11 +60,14 @@ table{
   display: table-cell;
   padding: 20px;
   border: 10px solid rgb(245, 87, 70);
-  margin: unset;
+  /* margin: unset; */
   box-shadow: 4px 4px 4px  rgb(255, 255, 255);
 
 }
 
+div{
+  padding: 40px;
+}
 
 tr{
   color: rgb(235, 67, 30);
@@ -65,11 +76,29 @@ tr{
 }
 
 td{
-  color: coral;
+  color: rgb(165, 48, 5);
   font-size: 16px;
 }
 
 
 #bottomSalmon{
-  align-items: center;
+  display: inline-block;
+}
+
+
+a:link {
+  color: rgb(202, 206, 202);  
+  text-decoration: none;
+}
+
+a:visited{
+  color: rgb(245, 245, 245);
+}
+
+a:hover{
+  color: rgb(201, 69, 13);
+  text-decoration: underline;
+}
+a:active{
+  color: darkred;
 }
