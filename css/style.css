@@ -20,8 +20,8 @@ h2 {
 }
 
 img.topSalmon-center {
- display: block;
- margin: 0px auto;
+  display: block;
+  margin: 0px auto;
 }
 
 nav {
@@ -32,7 +32,7 @@ nav {
   list-style-type: none;
 }
 
-#shirt{
+#shirt {
   float: right;
 }
 
@@ -41,8 +41,6 @@ ul li {
   display: inline-block;
   margin: 20px;
   font-size: 20px;
-
-
 }
 
 img {
@@ -52,8 +50,6 @@ img {
 .fishcookies {
   border: 5px solid white;
   border-radius: 20%;
-  
-
 }
 
 p {
