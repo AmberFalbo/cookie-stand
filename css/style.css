@@ -1,5 +1,5 @@
 body {
-  background: rgb(244, 184, 163);
+  background: rgb(232, 185, 156);
   margin-top: 10px;
   margin-bottom: 60px;
   color: rgb(228, 75, 40);
@@ -9,14 +9,17 @@ body {
 
 
 h1 {
-  color: beige;
+  color: rgb(160, 72, 17);
   text-align: center;
   font-size: 4em;
   padding: 10px;
+  font-family: 'Pacifico', cursive;
+
 }
 
 h2 {
   font-size: 40px;
+  color: rgb(49, 57, 12);
 }
 
 img.topSalmon-center {
@@ -54,6 +57,8 @@ img {
 
 p {
   padding: 10px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: rgb(233, 75, 75);
 }
 
 
@@ -85,6 +90,7 @@ table {
   border: 10px solid rgb(245, 87, 70);
   /* margin: unset; */
   box-shadow: 4px 4px 4px rgb(255, 255, 255);
+  font-family: Arial, Helvetica, sans-serif
 
 }
 
