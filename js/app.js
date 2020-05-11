@@ -33,6 +33,8 @@ function Store(name, minCustomersEachHour, maxCustomersEachHour, averageCookiesP
 }
 
 Store.prototype.calcCustomersEachHour = function () {
+  //adding empty arrays for new store input
+  this.customersEachHour = [];
   // calculate the customers each hour and populate the array
   // for loop over hours
   // make a helper function that generates a random number
@@ -46,6 +48,8 @@ Store.prototype.calcCustomersEachHour = function () {
 
 
 Store.prototype.calcCookiesSoldEachHour = function () {
+  //adding empty arrays for new store input
+  this.cookiesSoldEachHour = [];
   this.calcCustomersEachHour(); // this will generate the customer array
   // multiply the customers by the average cookies each customers buys
   // loop through the array of random customers
@@ -55,22 +59,26 @@ Store.prototype.calcCookiesSoldEachHour = function () {
     var totalCookies = Math.ceil(this.averageCookiesPerPerson * this.customersEachHour[i]);
 
     this.cookiesSoldEachHour.push(totalCookies);
+    // just added below
+    this.totalCookiesForTheDay += this.cookiesSoldEachHour[i];
+    console.log(this.totalCookies);
   }
 };
 
-Store.prototype.calcCookiesForTheDay = function () {
-  this.calcCookiesSoldEachHour();
-  // loop through cookies sold each hour array
-  // add them all together
-  for (var i = 0; i < this.cookiesSoldEachHour.length; i++) {
-    this.totalCookiesForTheDay += this.cookiesSoldEachHour[i];
-  }
-};
+// Store.prototype.calcCookiesForTheDay = function () {
+//   this.calcCookiesSoldEachHour();
+//   // loop through cookies sold each hour array
+//   // add them all together
+//   for (var i = 0; i < this.cookiesSoldEachHour.length; i++) {
+//     this.totalCookiesForTheDay += this.cookiesSoldEachHour[i];
+//   }
+// };
 
 
 
 Store.prototype.render = function () {
-  this.calcCookiesForTheDay();
+  // this.calcCookiesForTheDay(); //just changed below
+  this.calcCookiesSoldEachHour();
   // only for the body of the table
   // get the parent Element
 
@@ -102,12 +110,14 @@ Store.prototype.render = function () {
   var tableTotal = document.createElement('td');
   // fill it with content: this.totalCookiesForTheDay
   tableTotal.textContent = this.totalCookiesForTheDay;
+  console.log(this.totalCookiesForTheDay);
   // append td to the table row
   tableRow.appendChild(tableTotal);
 
   // append the table row to the parent
   parentElement.appendChild(tableRow);
 };
+
 
 // hours row
 Store.prototype.renderHours = function () {
@@ -192,33 +202,56 @@ function getRandomNumber(min, max) {
 //////////////////
 //form
 var form = document.getElementById('form');
-form.addEventListener('submit', handleFormSubmit);
-var allNewStores = [];
+// var allNewStores = [];
 
-
-function NewStore(city, minCust, maxCust, cookieSales) {
-  this.name = city;
-  this.minCust = minCust;
-  this.maxCust = maxCust;
-  this.cookieSales = cookieSales;
-  allNewStores.push(this);
-}
+//commented out just for now!!
+// function NewStore(city, minCust, maxCust, cookieSales) {
+//   this.name = city;
+//   this.minCust = minCust;
+//   this.maxCust = maxCust;
+//   this.cookieSales = cookieSales;
+//   allNewStores.push(this);
+// }
 
 // set up event handler
 function handleFormSubmit(event) {
   event.preventDefault();
-
+  
   var city = event.target.city.value;
-  var minCust = event.target.minCust.value;
-  minCust = parseInt(minCust);
-  var maxCust = event.target.maxCust.value;
-  maxCust = parseInt(maxCust);
-  var cookieSales = event.target.cookieSales.value;
-  cookieSales = parseInt(cookieSales);
+  var minCust = parseInt (event.target.minCust.value);
+  var maxCust = parseInt (event.target.maxCust.value);
+  var cookieSales = parseInt (event.target.cookieSales.value);
+  
+  
+  new Store(city, minCust, maxCust, cookieSales);
 
-  new NewStore(city, minCust, maxCust, cookieSales);
+  // we now have an array called allStores that has all of the stores including the new
+
+  // delete the table
+  // rebuild it
+
+  // clear the table
+  parentElement.textContent ='';
+
+
+  Store.prototype.renderHours();
+  // Store.prototype.renderTotals();
+
+  // loop over all of my object instances including the new one.
+  // call the render function on all of them (which calls all of the the functions)
+  // renders the inner table
+
+  for(var i=0; i<allStores.length; i++){
+    allStores[i].render();
+
+  }
+
+  renderFooterRow();
+
+  // var row = document.getElementById('table');
 }
 
+form.addEventListener('submit', handleFormSubmit);
 
 
 //////////////////
